@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Set index{% endblock %}
+
+{% block body %}
+    <h1>Set index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Repeat</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for set in sets %}
+            <tr>
+                <td>{{ set.id }}</td>
+                <td>{{ set.name }}</td>
+                <td>{{ set.repeat }}</td>
+                <td>
+                    <a href="{{ path('app_set_show', {'id': set.id}) }}">show</a>
+                    <a href="{{ path('app_set_edit', {'id': set.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_set_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Set{% endblock %}
+
+{% block body %}
+    <h1>Set</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ set.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ set.name }}</td>
+            </tr>
+            <tr>
+                <th>Repeat</th>
+                <td>{{ set.repeat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_set_index') }}">back to list</a>
+
+    <a href="{{ path('app_set_edit', {'id': set.id}) }}">edit</a>
+
+    {{ include('set/_delete_form.html.twig') }}
+{% endblock %}
